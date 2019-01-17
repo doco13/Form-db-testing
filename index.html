@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Train Schedule Manager</title>
+
+    <!-- Link to Moment JS -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style media="screen">
+
+      @import url('https://fonts.googleapis.com/css?family=Montserrat|Quicksand');
+
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .wrapper {
+        max-width: 1170px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      h1, h2, h3 {
+        text-align: center;
+        font-family: 'Quicksand', serif;
+      }
+
+      .pageHeader {
+        margin: 0% 5% 2.5% 5%;
+        padding: 2em;
+        border: 1px solid gray;
+        border-radius: 0.5em;
+        box-shadow: 0px 5px 10px lightgray;
+      }
+
+      .sectionContainer {
+        margin: 0% 5% 2.5% 5%;
+        border: 1px solid gray;
+        border-radius: 0.5em;
+        box-shadow: 0px 5px 10px gray;
+      }
+
+      .sectionTitle {
+        margin: 0px;
+        border-bottom: 1px solid gray;
+        padding: 0.5em;
+        background-color: lightgray;
+        border-top-left-radius: 0.25em;
+        border-top-right-radius: 0.25em;
+      }
+
+      .inputDataContainer {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .dataField {
+        font-size: 1em;
+        margin: 3% 5% 2% 5%;
+        width: 90%;
+        padding: 0.5em;
+        border: 0px;
+        border-bottom: 1px solid orange;
+      }
+
+      #submitBtn {
+        margin: 2% 35% 5% 35%;
+        width: 30%;
+        height: 3em;
+        font-size: 1em;
+      }
+
+      #resultsTable {
+        margin: 3% 3% 2% 3%;
+        width: 94%;
+        border-collapse: collapse;
+      }
+
+      .tableHeader {
+        background: orange;
+        height: 3em;
+        font-size: 1em;
+      }
+
+      td {
+        text-align: center;
+      }
+
+      #submitBtn:hover{
+        background: orange;
+        color: #fff;
+        border: 0;
+        transition: background-color 1s ease-out;
+      }
+
+      @media (min-width: 700px;) {
+        .wrapper{
+          width: 100%;
+          font-size: 1.25em;
+        }
+        .dataField{
+          padding: 0.1em;
+          margin: 1% 3% 1% 3%;
+        }
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="pageHeader">
+        <div class="head_container">
+          <h1 id="">Train Scheduler Manager</h1>
+        </div>
+      </header>
+
+      <main>
+        <section class="sectionContainer">
+          <h2 class="sectionTitle">Add Train</h2>
+          <div class="inputDataContainer">
+            <form id="trainData" action="index.html" method="post">
+              <input class="dataField" type="text" name="trainName" id="trainName" placeholder="Train Name">
+              <input class="dataField"  type="text" name="trainDestination" id="trainDestination" placeholder="Destination">
+              <input class="dataField"  type="time" name="firstDeparture" id="firstDeparture" placeholder="First Departure hh:mm" required>
+              <input class="dataField"  type="number" name="departureFrequency" id="departureFrequency" placeholder="Minutes">
+              <button id="submitBtn" type="button" name="submitBtn">Submit</button>
+            </form>
+          </div>
+
+        </section>
+        <section class="sectionContainer">
+          <h2 class="sectionTitle">Train Schedules</h2>
+          <table id="resultsTable">
+            <thead>
+              <th class="tableHeader">Train Name</th>
+              <th class="tableHeader">Destination</th>
+              <th class="tableHeader">Frequency</th>
+              <th class="tableHeader">Next Arrival</th>
+              <th class="tableHeader">Time Remaining</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+
+          </table>
+        </section>
+
+      </main>
+
+      <footer class="pageFooter">
+        <h3 class="footer">Powered By  &copy; 2019 I Wish I Knew, Inc</h2>
+      </footer>
+
+    </div>
+
+    <!-- firebase framework  -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+    <script src="javascript.js" charset="utf-8"></script>
+  </body>
+</html>
